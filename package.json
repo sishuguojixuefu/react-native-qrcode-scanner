@@ -1,0 +1,29 @@
+{
+  "name": "ac-qrcode-rn",
+  "version": "0.1.0",
+  "description": "修复了Proptypes引用错误的BUG",
+  "main": "index.js",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://MarnoDev@github.com/youngjuning/ac-qrcode-rn.git"
+  },
+  "keywords": [
+    "react-native",
+    "react-native-component",
+    "reat-native-app",
+    "android",
+    "ios",
+    "react",
+    "marno"
+  ],
+  "author": "youngjuning",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/youngjuning/ac-qrcode-rn/issues"
+  },
+  "homepage": "https://github.com/youngjuning/ac-qrcode-rn#readme"
+}
