@@ -1,7 +1,7 @@
 {
   "name": "ac-qrcode-rn",
-  "version": "0.2.0",
-  "description": "修复了Proptypes引用错误的BUG",
+  "version": "0.2.1",
+  "description": "修复了ac-qrcode Proptypes引用错误的BUG",
   "main": "index.js",
   "readmeFilename": "README.md",
   "scripts": {
