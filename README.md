@@ -57,6 +57,16 @@ class DefaultScreen extends Component {
   }
 }
 
+const styles = StyleSheet.create({
+  text: {
+    color: 'white',
+    textAlignVertical: 'center',
+    textAlign: 'center',
+    fontSize: 20,
+    padding: 12,
+  },
+})
+
 export default DefaultScreen
 ```
 
