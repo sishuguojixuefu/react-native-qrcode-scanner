@@ -18,9 +18,9 @@ $ react-native link react-native-camera
 
 ```js
 import React,{Component} from 'react'
-import { Text } from 'react-native'
+import { Text, StyleSheet } from 'react-native'
 import { QRScannerView } from 'ac-qrcode-rn'
-import { Toast } from '@sishu/antd-mobile-rn'
+import { Toast } from 'antd-mobile-rn'
 
 class DefaultScreen extends Component {
   constructor(props) {
@@ -36,19 +36,13 @@ class DefaultScreen extends Component {
 
   renderTopBarView() {
     return (
-      <Text
-        style={{ color: 'white', textAlignVertical: 'center', textAlign: 'center', font: 20, padding: 12 }}
-      >这里添加底部菜单
-      </Text>
+      <Text style={styles.text}>这里添加底部菜单</Text>
     )
   }
 
   renderBottomMenuView() {
     return (
-      <Text
-        style={{ color: 'white', textAlignVertical: 'center', textAlign: 'center', font: 20, padding: 12 }}
-      >这里添加标题
-      </Text>
+      <Text style={styles.text}>这里添加标题</Text>
     )
   }
 
