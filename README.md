@@ -36,13 +36,13 @@ class DefaultScreen extends Component {
 
   renderTopBarView() {
     return (
-      <Text style={styles.text}>这里添加底部菜单</Text>
+      <Text style={styles.text}>这里添加标题</Text>
     )
   }
 
   renderBottomMenuView() {
     return (
-      <Text style={styles.text}>这里添加标题</Text>
+      <Text style={styles.text}>这里添加底部菜单</Text>
     )
   }
 
