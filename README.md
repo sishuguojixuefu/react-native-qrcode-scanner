@@ -17,40 +17,53 @@ $ react-native link react-native-camera
 ## 基本使用
 
 ```js
+import React,{Component} from 'react'
+import { Text } from 'react-native'
 import { QRScannerView } from 'ac-qrcode-rn'
+import { Toast } from '@sishu/antd-mobile-rn'
 
-export default class DefaultScreen extends Component {
+class DefaultScreen extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {}
+  
+  onScanResultReceived = (e) => {
+    Toast.show(`Type: ${e.type}\nData: ${e.data}`)
+    // console.log(e)
+  }
+
+  renderTopBarView() {
+    return (
+      <Text
+        style={{ color: 'white', textAlignVertical: 'center', textAlign: 'center', font: 20, padding: 12 }}
+      >这里添加底部菜单
+      </Text>
+    )
+  }
+
+  renderBottomMenuView() {
+    return (
+      <Text
+        style={{ color: 'white', textAlignVertical: 'center', textAlign: 'center', font: 20, padding: 12 }}
+      >这里添加标题
+      </Text>
+    )
+  }
+
   render() {
     return (
-      < QRScannerView
-        onScanResultReceived={this.barcodeReceived.bind(this)}
-        renderTopBarView={() => this._renderTitleBar()}
-        renderBottomMenuView={() => this._renderMenu()}
+      <QRScannerView
+        onScanResultReceived={this.onScanResultReceived}
+        renderTopBarView={this.renderTopBarView}
+        renderBottomMenuView={this.renderBottomMenuView}
       />
     )
   }
-
-  _renderTitleBar(){
-    return(
-      <Text
-        style={{color:'white',textAlignVertical:'center', textAlign:'center',font:20,padding:12}}
-      >这里添加标题</Text>
-    )
-  }
-
-  _renderMenu() {
-    return (
-      <Text
-          style={{color:'white',textAlignVertical:'center', textAlign:'center',font:20,padding:12}}
-      >这里添加底部菜单</Text>
-    )
-  }
-
-  barcodeReceived(e) {
-    Toast.show('Type: ' + e.type + '\nData: ' + e.data);
-    //console.log(e)
-  }
 }
+
+export default DefaultScreen
 ```
 
 ## 属性列表
