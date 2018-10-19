@@ -29,9 +29,9 @@ class DefaultScreen extends Component {
 
   componentDidMount() {}
   
-  onScanResultReceived = (e) => {
-    Toast.show(`Type: ${e.type}\nData: ${e.data}`)
-    // console.log(e)
+  onScanResultReceived = ({ data, type }) => {
+    console.log(`Type: ${type}\nData: ${data}`)
+    // do anything
   }
 
   renderTopBarView() {
