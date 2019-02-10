@@ -42,19 +42,19 @@ class QRScannerRectView extends Component {
       scanBarImage: null,
       scanBarHeight: 1.5,
       scanBarMargin: 6,
-      hintText: '将二维码/条码放入框内，即可自动扫描',
+      hintText: 'Align the QR code within the viewfinder',
       hintTextStyle: { color: '#fff', fontSize: 14, backgroundColor: 'transparent' },
       hintTextPosition: 130,
       isShowScanBar: true,
     };
 
     constructor(props) {
-      super(props)
+      super(props);
 
-      this.getBackgroundColor = this.getBackgroundColor.bind(this)
-      this.getRectSize = this.getRectSize.bind(this)
-      this.getCornerSize = this.getCornerSize.bind(this)
-      this.renderLoadingIndicator = this.renderLoadingIndicator.bind(this)
+      this.getBackgroundColor = this.getBackgroundColor.bind(this);
+      this.getRectSize = this.getRectSize.bind(this);
+      this.getCornerSize = this.getCornerSize.bind(this);
+      this.renderLoadingIndicator = this.renderLoadingIndicator.bind(this);
 
       this.state = {
         topWidth: 0,
@@ -92,14 +92,14 @@ class QRScannerRectView extends Component {
       })
     }
 
-    // 获取扫描框转角的颜色
+    // Get the colours of the corners of the scanning rectangle
     getCornerColor() {
       return ({
         borderColor: this.props.cornerColor,
       })
     }
 
-    // 获取扫描框转角的大小
+    // Get the size of the corners of the scanning rectangle
     getCornerSize() {
       return ({
         height: this.props.cornerBorderLength,
@@ -107,21 +107,21 @@ class QRScannerRectView extends Component {
       })
     }
 
-    // 获取扫描框大小
+    // Get the width of the scanning border
     getBorderWidth() {
       return ({
         borderWidth: this.props.borderWidth,
       })
     }
 
-    // 获取扫描框颜色
+    // Get the colour of the scanning border
     getBorderColor() {
       return ({
         borderColor: this.props.borderColor,
       })
     }
 
-    // 渲染加载动画
+
     renderLoadingIndicator() {
       if (!this.props.isLoading) {
         return null
@@ -136,17 +136,17 @@ class QRScannerRectView extends Component {
       )
     }
 
-    // 测量整个扫描组件的大小
+    // Measure the size of the entire scanning rectangle
     measureTotalSize(e) {
-      const totalSize = e.layout
+      const totalSize = e.layout;
       this.setState({
         topWidth: totalSize.width,
       })
     }
 
-    // 测量扫描框的位置
+    // Measure the position of the scanning rectangle
     measureRectPosition(e) {
-      const rectSize = e.layout
+      const rectSize = e.layout;
       this.setState({
         topHeight: rectSize.y,
         leftWidth: rectSize.x,
@@ -204,7 +204,7 @@ class QRScannerRectView extends Component {
 
     // Renders the scanning line
     _renderScanBar() {
-      if (!this.props.isShowScanBar) return
+      if (!this.props.isShowScanBar) return;
       if (this.props.scanBarImage) {
         return (<Image
           style={{ resizeMode: 'contain', width: this.getScanImageWidth() }}
@@ -223,7 +223,7 @@ class QRScannerRectView extends Component {
         transform: [
           { translateY: this.state.animatedValue },
         ],
-      }
+      };
 
       return (
         <View
@@ -356,7 +356,7 @@ class QRScannerRectView extends Component {
     }
 
     scannerLineMove() {
-      this.state.animatedValue.setValue(0) // 重置Rotate动画值为0
+      this.state.animatedValue.setValue(0); // 重置Rotate动画值为0
       Animated.timing(this.state.animatedValue, {
         toValue: this.props.rectHeight,
         duration: this.props.scanBarAnimateTime,
@@ -398,7 +398,7 @@ export default class QRScannerView extends Component {
     };
 
     constructor(props) {
-      super(props)
+      super(props);
       // 通过这句代码屏蔽 YellowBox
       console.disableYellowBox = true
     }
@@ -412,10 +412,10 @@ export default class QRScannerView extends Component {
             style={{ flex: 1 }}
             flashMode={this.props.torchEnabled ? RNCamera.Constants.FlashMode.on : RNCamera.Constants.FlashMode.off}
           >
-            {/* 绘制顶部标题栏组件 */}
+            {/* Top Menu */}
             {this.props.renderTopBarView()}
 
-            {/* 绘制扫描遮罩 */}
+            {/* QR Scanner Boundary */}
             <QRScannerRectView
               maskColor={this.props.maskColor}
               cornerColor={this.props.cornerColor}
@@ -440,12 +440,12 @@ export default class QRScannerView extends Component {
               isShowScanBar={this.props.isShowScanBar}
             />
 
-            {/* 绘制底部操作栏 */}
+            {/* Bottom Menu */}
             <View style={[styles.buttonsContainer, this.props.bottomMenuStyle]}>
               {this.props.renderBottomMenuView()}
             </View>
 
-          </Camera>
+          </RNCamera>
         </View>
       )
     }

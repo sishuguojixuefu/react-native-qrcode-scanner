@@ -27,5 +27,10 @@
   "bugs": {
     "url": "https://github.com/xiurobert/ac-qrcode-rn/issues"
   },
-  "homepage": "https://github.com/xiurobert/ac-qrcode-rn#readme"
+  "homepage": "https://github.com/xiurobert/ac-qrcode-rn#readme",
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react-native": "^0.58.4",
+    "react-native-camera": "^1.10.1"
+  }
 }
