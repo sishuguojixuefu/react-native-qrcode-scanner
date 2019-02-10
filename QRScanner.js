@@ -394,7 +394,7 @@ export default class QRScannerView extends Component {
         renderBottomMenuView: PropTypes.func,
         isShowScanBar: PropTypes.bool,
         bottomMenuStyle: PropTypes.object,
-        torchEnabled: PropTypes.bool,
+        flashMode: PropTypes.object,
     };
 
     constructor(props) {
@@ -410,7 +410,7 @@ export default class QRScannerView extends Component {
                     barCodeTypes={[RNCamera.Constants.BarCodeType.qr]}
                     onBarCodeRead={this.props.onScanResultReceived}
                     style={{flex: 1}}
-                    flashMode={this.props.torchEnabled ? RNCamera.Constants.FlashMode.torch : RNCamera.Constants.FlashMode.off}
+                    flashMode={this.props.flashMode}
                 >
                     {/* Top Menu */}
                     {this.props.renderTopBarView()}

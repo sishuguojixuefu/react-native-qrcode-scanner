@@ -75,33 +75,33 @@ export default DefaultScreen
 
 ![](https://github.com/MarnoDev/AC-QRCode-RN/blob/master/screenshots/ac-qrcode-props.jpg)
 
-|        Prop        |  Type  |                                 Default Value                                 | Selectable  |        Explanation        |
-|:--------------------:|:------:|:----------------------------------------------------------------------:|:-----:|:------------------:|
-|      maskColor       | string |                               #0000004D                                | true  |      Mask colour      |
-|     borderColor      | string |                                #000000                                 | true  |      Border colour      |
-|     cornerColor      | string |                                #000000                                 | true  |      Corner colour      |
-|     borderWidth      | number |                                   0                                    | true  |      Border width      |
-|  cornerBorderWidth   | number |                                   4                                    | true  |      Corner width      |
-|  cornerBorderLength  | number |                                   20                                   | true  |      Corner height      |
-|      rectHeight      | number |                                  200                                   | true  |     Scanning rectangle height     |
-|      rectWidth       | number |                                  200                                   | true  |     Scanning rectangle height     |
-|    isCornerOffset    |  bool  |                                 false                                  | true  |    Whether the corners are offset  |
-|   cornerOffsetSize   | number |                                   0                                    | true  |     Corner offset size     |
-|   bottomMenuHeight   | number |                                   0                                    | true  |  底部操作菜单高度  |
-|  scanBarAnimateTime  | number |                                  2500                                  | true  |   扫描线移动速度   |
-|     scanBarColor     | string |                                #22ff00                                 | true  |     扫描线颜色     |
-|     scanBarImage     |  any   |                                  null                                  | true  |   使用图片扫描线   |
-|    scanBarHeight     | number |                                  1.5                                   | true  |     扫描线高度     |
-|    scanBarMargin     | number |                                   6                                    | true  | 扫描线距扫描狂边距 |
-|       hintText       | string |                Align the QR code within the viewfinder                | true  |      提示文本      |
-|    hintTextStyle     | object | { color: '#fff', </br>fontSize: 14,</br>backgroundColor:'transparent'} | true  |    提示文字样式    |
-|   hintTextPosition   | number |                                  130                                   | true  |    提示文字位置    |
-|    isShowScanBar     |  bool  |                                  true                                  | true  |   是否显示扫描条   |
-|   bottomMenuStyle    | object |                                   -                                    | true  |    底部菜单样式    |
-|   renderTopBarView   |  func  |                                   -                                    | false | 绘制顶部操作条组件 |
-| renderBottomMenuView |  func  |                                   -                                    | false | 绘制底部操作条组件 |
-| onScanResultReceived |  func  |                                   -                                    | false |    扫描结果回调    |
-| torchEnabled | bool | false | true |  Whether the torchlight mode is enabled |
+|         Prop         	|  Type  	|                              Default Value                             	| Optional 	|                Explanation               	|
+|:--------------------:	|:------:	|:----------------------------------------------------------------------:	|:--------:	|:----------------------------------------:	|
+|       maskColor      	| string 	|                                #0000004D                               	|   true   	|                Mask colour               	|
+|      borderColor     	| string 	|                                 #000000                                	|   true   	|               Border colour              	|
+|      cornerColor     	| string 	|                                 #000000                                	|   true   	|               Corner colour              	|
+|      borderWidth     	| number 	|                                    0                                   	|   true   	|               Border width               	|
+|   cornerBorderWidth  	| number 	|                                    4                                   	|   true   	|               Corner width               	|
+|  cornerBorderLength  	| number 	|                                   20                                   	|   true   	|               Corner height              	|
+|      rectHeight      	| number 	|                                   200                                  	|   true   	|         Scanning rectangle height        	|
+|       rectWidth      	| number 	|                                   200                                  	|   true   	|         Scanning rectangle height        	|
+|    isCornerOffset    	|  bool  	|                                  false                                 	|   true   	|      Whether the corners are offset      	|
+|   cornerOffsetSize   	| number 	|                                    0                                   	|   true   	|            Corner offset size            	|
+|   bottomMenuHeight   	| number 	|                                    0                                   	|   true   	|         Height of the bottom menu        	|
+|  scanBarAnimateTime  	| number 	|                                  2500                                  	|   true   	| Time for the scan bar to move down fully 	|
+|     scanBarColor     	| string 	|                                 #22ff00                                	|   true   	|      Colour of the animated scan bar     	|
+|     scanBarImage     	|   any  	|                                  null                                  	|   true   	|     Image to be used for the scan bar    	|
+|     scanBarHeight    	| number 	|                                   1.5                                  	|   true   	|           Height of the scan bar         	|
+|     scanBarMargin    	| number 	|                                    6                                   	|   true   	|          Margins of the scan bar         	|
+|       hintText       	| string 	|                 Align the QR code within the viewfinder                	|   true   	|                   Hint                   	|
+|     hintTextStyle    	| object 	| { color: '#fff', </br>fontSize: 14,</br>backgroundColor:'transparent'} 	|   true   	|              Hint text style             	|
+|   hintTextPosition   	| number 	|                                   130                                  	|   true   	|    Absolute position of the hint text    	|
+|     isShowScanBar    	|  bool  	|                                  true                                  	|   true   	|           Should show scan bar?          	|
+|    bottomMenuStyle   	| object 	|                                    -                                   	|   true   	|             Bottom menu style            	|
+|   renderTopBarView   	|  func  	|                                    -                                   	|   false  	|   Function to render the top menu view   	|
+| renderBottomMenuView 	|  func  	|                                    -                                   	|   false  	|  Function to render the bottom menu view 	|
+| onScanResultReceived 	|  func  	|                                    -                                   	|   false  	| Function to call when QR code is scanned 	|
+| torchEnabled         	| bool   	| false                                                                  	| true     	| Whether the torchlight is enabled        	|
 
 ## Credits
 
