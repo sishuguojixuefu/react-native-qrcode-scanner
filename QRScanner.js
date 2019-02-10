@@ -2,10 +2,13 @@
  * Created by marno on 2017/4/13
  * Function: 二维码扫描界面
  * Desc:
+ * Updated by xiurobert on 2019/2/10
+ * Changes: 
+ * Updated to RNCamera
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Camera from 'react-native-camera'
+import { RNCamera } from 'react-native-camera'
 import
 {
   ActivityIndicator,
@@ -17,9 +20,8 @@ import
   Image,
 } from 'react-native'
 
-/**
- * 扫描界面遮罩
- * 单独写一个类，方便拷贝使用
+/***
+ * Container within the RNCamera holding everything
  */
 class QRScannerRectView extends Component {
     static defaultProps = {
@@ -62,14 +64,13 @@ class QRScannerRectView extends Component {
       }
     }
 
-    // 获取背景颜色
     getBackgroundColor() {
       return ({
         backgroundColor: this.props.maskColor,
       })
     }
 
-    // 获取扫描框背景大小
+    // Get the size of the boundary of the QR Scanner
     getRectSize() {
       return ({
         height: this.props.rectHeight,
@@ -77,7 +78,7 @@ class QRScannerRectView extends Component {
       })
     }
 
-    // 获取扫描框边框大小
+    // Get the border size of the boundary of the QR Scanner
     getBorderSize() {
       if (this.props.isCornerOffset) {
         return ({
@@ -201,7 +202,7 @@ class QRScannerRectView extends Component {
       return this.props.rectWidth - this.props.scanBarMargin * 2
     }
 
-    // 绘制扫描线
+    // Renders the scanning line
     _renderScanBar() {
       if (!this.props.isShowScanBar) return
       if (this.props.scanBarImage) {
@@ -235,7 +236,7 @@ class QRScannerRectView extends Component {
             onLayout={({ nativeEvent: e }) => this.measureRectPosition(e)}
           >
 
-            {/* 扫描框边线 */}
+            {/* Animated line moving up and down the scanning area */}
             <View style={[
                         this.getBorderSize(),
                         this.getBorderColor(),
@@ -252,7 +253,7 @@ class QRScannerRectView extends Component {
 
             </View>
 
-            {/* 扫描框转角-左上角 */}
+            {/* Top left border */}
             <View style={[
                         this.getCornerColor(),
                         this.getCornerSize(),
@@ -264,7 +265,7 @@ class QRScannerRectView extends Component {
                     ]}
             />
 
-            {/* 扫描框转角-右上角 */}
+            {/* Top right border */}
             <View style={[
                         this.getCornerColor(),
                         this.getCornerSize(),
@@ -276,10 +277,10 @@ class QRScannerRectView extends Component {
                     ]}
             />
 
-            {/* 加载动画 */}
+     
             {this.renderLoadingIndicator()}
 
-            {/* 扫描框转角-左下角 */}
+            {/* Bottom left corner */}
             <View style={[
                         this.getCornerColor(),
                         this.getCornerSize(),
@@ -291,7 +292,7 @@ class QRScannerRectView extends Component {
                     ]}
             />
 
-            {/* 扫描框转角-右下角 */}
+            {/* Bottom right corner */}
             <View style={[
                         this.getCornerColor(),
                         this.getCornerSize(),
@@ -359,13 +360,13 @@ class QRScannerRectView extends Component {
       Animated.timing(this.state.animatedValue, {
         toValue: this.props.rectHeight,
         duration: this.props.scanBarAnimateTime,
-        easing: Easing.linear,
+        easing: Easing.ease,
       }).start(() => this.scannerLineMove())
     }
 }
 
 /**
- * 扫描界面
+ * Usable Component.
  */
 export default class QRScannerView extends Component {
     static propTypes = {
@@ -378,7 +379,7 @@ export default class QRScannerView extends Component {
       rectHeight: PropTypes.number,
       rectWidth: PropTypes.number,
       isLoading: PropTypes.bool,
-      isCornerOffset: PropTypes.bool, // 边角是否偏移
+      isCornerOffset: PropTypes.bool, 
       cornerOffsetSize: PropTypes.number,
       bottomMenuHeight: PropTypes.number,
       scanBarAnimateTime: PropTypes.number,
@@ -393,6 +394,7 @@ export default class QRScannerView extends Component {
       renderBottomMenuView: PropTypes.func,
       isShowScanBar: PropTypes.bool,
       bottomMenuStyle: PropTypes.object,
+      torchEnabled: PropTypes.bool,
     };
 
     constructor(props) {
@@ -404,9 +406,11 @@ export default class QRScannerView extends Component {
     render() {
       return (
         <View style={{ flex: 1 }}>
-          <Camera
+          <RNCamera
+            barCodeTypes={[RNCamera.Constants.BarCodeType.qr]}
             onBarCodeRead={this.props.onScanResultReceived}
             style={{ flex: 1 }}
+            flashMode={this.props.torchEnabled ? RNCamera.Constants.FlashMode.on : RNCamera.Constants.FlashMode.off}
           >
             {/* 绘制顶部标题栏组件 */}
             {this.props.renderTopBarView()}
