@@ -1,7 +1,7 @@
 {
-  "name": "ac-qrcode-rn",
-  "version": "0.2.1",
-  "description": "修复了ac-qrcode Proptypes引用错误的BUG",
+  "name": "xiurobert-ac-qrcode-rn",
+  "version": "2.3.1",
+  "description": "AC-QRCode improved",
   "main": "index.js",
   "readmeFilename": "README.md",
   "scripts": {
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://MarnoDev@github.com/youngjuning/ac-qrcode-rn.git"
+    "url": "git+https://xiurobert@github.com/xiurobert/ac-qrcode-rn.git"
   },
   "keywords": [
     "react-native",
@@ -25,7 +25,12 @@
   "author": "youngjuning",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/youngjuning/ac-qrcode-rn/issues"
+    "url": "https://github.com/xiurobert/ac-qrcode-rn/issues"
   },
-  "homepage": "https://github.com/youngjuning/ac-qrcode-rn#readme"
+  "homepage": "https://github.com/xiurobert/ac-qrcode-rn#readme",
+  "dependencies": {
+    "prop-types": "^15.6.2",
+    "react-native": "^0.58.4",
+    "react-native-camera": "^1.10.1"
+  }
 }
