@@ -1,16 +1,7 @@
 {
   "name": "ac-qrcode-rn",
   "version": "0.2.1",
-  "description": "修复了ac-qrcode Proptypes引用错误的BUG",
-  "main": "index.js",
-  "readmeFilename": "README.md",
-  "scripts": {
-    "test": "make test"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://MarnoDev@github.com/youngjuning/ac-qrcode-rn.git"
-  },
+  "description": "react native扫描二维码组件",
   "keywords": [
     "react-native",
     "react-native-component",
@@ -22,10 +13,22 @@
     "youngjuning",
     "杨俊宁"
   ],
-  "author": "youngjuning",
+  "main": "index.js",
+  "scripts": {
+    "postversion": "git push --tags && git push && npm publish"
+  },
   "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/youngjuning/ac-qrcode-rn/issues"
   },
-  "homepage": "https://github.com/youngjuning/ac-qrcode-rn#readme"
+  "homepage": "https://github.com/sishuguojixuefu/react-native-qrcode-scanner",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sishuguojixuefu/react-native-qrcode-scanner.git"
+  },
+  "author": {
+    "name": "杨俊宁",
+    "email": "1003719811@qq.com",
+    "url": "https://youngjuning.js.org"
+  }
 }
