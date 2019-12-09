@@ -1,6 +1,6 @@
 {
   "name": "@sishu/ac-qrcode-rn",
-  "version": "0.2.1",
+  "version": "0.2.3",
   "description": "react native扫描二维码组件",
   "keywords": [
     "react-native",
